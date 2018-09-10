@@ -29,11 +29,21 @@ class App extends Component{
 	renderContent(){
 		switch(this.state.loggedIn) {
 			case true:
-				return <Button>Log Out</Button>;
+				return (
+					<View style={styles.buttonStyle}>
+						<Button onPress={() => firebase.auth().signOut()}>
+							Log Out
+						</Button>
+					</View>
+				);
 			case false:
 				return <LoginForm />;
 			default:
-				return <Spinner size="large" /> ;
+				return (
+					<View style={styles.buttonStyle}>
+						<Spinner size="large"/> 
+					</View>
+				);
 		}
 	}
 
@@ -41,9 +51,7 @@ class App extends Component{
 		return (
 			<View>
 				<Header headerText="Authentication" />
-				<View style={styles.buttonStyle}>
-					{this.renderContent()}
-				</View>
+				{this.renderContent()}
 			</View>
 		);
 	}
@@ -56,7 +64,7 @@ const styles ={
 
 	spinnerStyle: {
 		flex: 1, //fullfill the width of the screen
-		position: 'absolute',
+
 		justfyContet: 'center',
 		alignItems: 'center'
 	}
