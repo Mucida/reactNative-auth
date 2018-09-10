@@ -33,7 +33,7 @@ class App extends Component{
 			case false:
 				return <LoginForm />;
 			default:
-				return <Spinner size="large" />;
+				return <Spinner size="large" /> ;
 		}
 	}
 
@@ -51,7 +51,14 @@ class App extends Component{
 
 const styles ={
 	buttonStyle :{
-		displayDirection: 'row'
+		flexDirection: 'row'
+	},
+
+	spinnerStyle: {
+		flex: 1, //fullfill the width of the screen
+		position: 'absolute',
+		justfyContet: 'center',
+		alignItems: 'center'
 	}
 };
 
